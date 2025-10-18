@@ -1,0 +1,371 @@
+:root {
+  --primary-color: #4a4a4a; /* Negro claro profesional */
+  --primary-hover: #5e5e5e;
+  --bg-dark: #121212;
+  --text-light: #f8f9fa;
+  --transition-base: all 0.3s ease;
+}
+
+/* Base Styles */
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  padding-top: 100px;
+  margin-top: 80px;
+}
+
+/* Header & Navigation */
+header {
+  transition: var(--transition-base);
+  z-index: 1030;
+}
+
+.navbar {
+  top: 60px;
+  z-index: 1020;
+}
+
+.nav-link {
+  position: relative;
+  padding: 0.5rem 0;
+  transition: var(--transition-base);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-color);
+  transition: var(--transition-base);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--primary-color) !important;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Hero Section */
+#hero {
+  background: linear-gradient(rgba(18, 18, 18, 0.9), rgba(18, 18, 18, 0.9)), 
+              url('../img/hero-bg-pattern.svg');
+  background-size: cover;
+}
+
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  border-color: var(--primary-hover);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+  body {
+    padding-top: 70px;
+  }
+  
+  .navbar {
+    top: 50px;
+  }
+  
+  .nav-link {
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-illustration {
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+/* About Page Styles */
+.about-image {
+    transition: var(--transition-base);
+    border: 1px solid var(--primary-color);
+}
+
+.about-image:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.skill-item {
+    transition: var(--transition-base);
+}
+
+.skill-item:hover {
+    transform: translateX(5px);
+}
+
+.soft-skill-item {
+    transition: var(--transition-base);
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.soft-skill-item:hover {
+    background-color: rgba(74, 74, 74, 0.1);
+    transform: translateY(-3px);
+}
+
+/* Timeline Styles */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: var(--primary-color);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1px;
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    top: 15px;
+    z-index: 1;
+}
+
+.timeline-item.left {
+    left: 0;
+}
+
+.timeline-item.right {
+    left: 50%;
+}
+
+.timeline-item.left::after {
+    right: -10px;
+}
+
+.timeline-item.right::after {
+    left: -10px;
+}
+
+.timeline-content {
+    position: relative;
+}
+
+.timeline-date {
+    position: absolute;
+    top: 15px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.timeline-item.left .timeline-date {
+    right: -100px;
+    text-align: right;
+}
+
+.timeline-item.right .timeline-date {
+    left: -100px;
+    text-align: left;
+}
+
+/* Contact Page Styles */
+.contact-icon {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(74, 74, 74, 0.1);
+    border-radius: 50%;
+    transition: var(--transition-base);
+}
+
+.contact-icon:hover {
+    background-color: rgba(74, 74, 74, 0.3);
+    transform: scale(1.1);
+}
+
+#contactForm .form-control {
+    transition: var(--transition-base);
+}
+
+#contactForm .form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(74, 74, 74, 0.25);
+}
+
+/* Responsive Timeline */
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 40px;
+    }
+    
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 0;
+    }
+    
+    .timeline-item.left, 
+    .timeline-item.right {
+        left: 0;
+    }
+    
+    .timeline-item.left::after, 
+    .timeline-item.right::after {
+        left: 30px;
+    }
+    
+    .timeline-item.left .timeline-date,
+    .timeline-item.right .timeline-date {
+        left: 70px;
+        right: auto;
+        top: -25px;
+        text-align: left;
+    }
+}
+
+/* Projects Page Styles */
+.project-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    perspective: 1000px;
+}
+
+.project-card-inner {
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    height: 100%;
+}
+
+.project-card:hover .project-card-inner {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.project-card img {
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 1px solid var(--primary-color);
+}
+
+.filter-btn {
+    transition: all 0.3s ease;
+    min-width: 120px;
+}
+
+.filter-btn.active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+/* Modal Styles */
+#projectModal .modal-content {
+    border: 1px solid var(--primary-color);
+}
+
+#projectModal .carousel-item img {
+    max-height: 400px;
+    object-fit: contain;
+}
+
+#projectModal pre {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+/* Syntax Highlighting (basic) */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: #6a9955;
+}
+
+.token.punctuation {
+    color: #d4d4d4;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #b5cea8;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #ce9178;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #d4d4d4;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+    color: #569cd6;
+}
+
+.token.function,
+.token.class-name {
+    color: #dcdcaa;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #d16969;
+}
