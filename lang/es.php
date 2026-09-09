@@ -44,7 +44,9 @@ return [
             'email' => 'Email',
             'location' => 'Ubicación',
             'phone' => 'Teléfono'
-        ]
+        ],
+        'social_title' => '¿Prefieres contactar por redes?',
+        'social_subtitle' => 'Escríbeme por mi LinkedIn o mira mi trabajo en GitHub.'
     ],
     'resume' => [
         'title' => 'Curriculum <span class="text-primary">Vitae</span>',
@@ -83,7 +85,6 @@ return [
         'my' => 'Mi',
         'experience' => 'Experiencia',
         'fullstack_dev' => 'Desarrollador FullStack',
-        'company_xyz' => 'Empresa XYZ',
         'present' => 'Presente',
         'fullstack_desc' => 'Desarrollo y mantenimiento de aplicaciones web y móviles usando tecnologías modernas.',
         'mobile_dev' => 'Desarrollador Mobile',
@@ -91,7 +92,26 @@ return [
         'mobile_desc' => 'Desarrollo de aplicaciones nativas para iOS y Android con Swift y Kotlin.',
         'web_dev' => 'Desarrollador Web Junior',
         'company_123' => 'Agencia 123',
-        'web_desc' => 'Implementación de interfaces de usuario y desarrollo frontend.'
+        'web_desc' => 'Implementación de interfaces de usuario y desarrollo frontend.',
+        'availability' => 'Disponible para nuevos proyectos',
+        'location_label' => 'Ubicación',
+        'email_label' => 'Correo',
+        'stats' => [
+            'years' => 'Años de Experiencia',
+            'skills' => 'Tecnologías Dominadas',
+            'certifications' => 'Certificaciones',
+            'languages' => 'Idiomas'
+        ],
+        'categories' => [
+            'frontend' => 'Frontend',
+            'backend' => 'Backend',
+            'database' => 'Bases de Datos',
+            'devops' => 'DevOps & Cloud',
+            'other' => 'Otros'
+        ],
+        'achievements' => 'Logros',
+        'my_work' => 'Mi Trabajo',
+        'view_projects' => 'Ver Proyectos'
     ],
     'projects' => [
         'page_title' => 'Proyectos | Rafael Elebiyo Median',

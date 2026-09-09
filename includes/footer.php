@@ -19,11 +19,7 @@ require_once 'translation.php';
             </div>
             <div class="col-lg-4">
                 <h4 class="h6 text-primary mb-3"><?= t('footer.connect') ?></h4>
-                <div class="social-links d-flex gap-3">
-                    <a href="#" class="text-light" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
-                    <a href="#" class="text-light" aria-label="GitHub"><i class="bi bi-github"></i></a>
-                    <a href="#" class="text-light" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
-                </div>
+                <div class="social-links d-flex gap-3" data-social="instagram,facebook,linkedin,github"></div>
                 <div class="mt-3">
                     <a href="mailto:<?= htmlspecialchars($personalInfo['email']) ?>" class="text-light small"><?= htmlspecialchars($personalInfo['email']) ?></a>
                 </div>
@@ -36,3 +32,5 @@ require_once 'translation.php';
         </div>
     </div>
 </footer>
+<script src="assets/seeds/redes.js"></script>
+<script src="assets/js/social.js"></script>

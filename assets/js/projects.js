@@ -44,6 +44,28 @@ document.addEventListener('DOMContentLoaded', function() {
     function showProjectDetails(project) {
         document.getElementById('project-modal-title').textContent = project.title || 'Proyecto sin título';
         document.getElementById('project-modal-description').innerHTML = `<p>${project.full_description || 'Descripción no disponible'}</p>`;
+
+        const videoFrame = document.getElementById('project-video-frame');
+        const videoWrapper = document.getElementById('project-video-wrapper');
+        const mediaFallback = document.getElementById('project-media-fallback');
+
+        const previewUrl = project.video_url ? project.video_url
+            .replace('/view?usp=drive_link', '/preview')
+            .replace('/view', '/preview') : '';
+
+        if (previewUrl) {
+            videoFrame.src = previewUrl;
+            videoWrapper.classList.remove('d-none');
+            mediaFallback.classList.add('d-none');
+        } else if (project.cover_image) {
+            mediaFallback.src = project.cover_image;
+            mediaFallback.alt = project.title;
+            mediaFallback.classList.remove('d-none');
+            videoWrapper.classList.add('d-none');
+        } else {
+            videoWrapper.classList.add('d-none');
+            mediaFallback.classList.add('d-none');
+        }
         
         const techContainer = document.getElementById('project-modal-tech');
         techContainer.innerHTML = project.technologies ? 
@@ -52,10 +74,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const featuresContainer = document.getElementById('project-modal-features');
         featuresContainer.innerHTML = project.features ? 
             project.features.split('|||').map(feature => `<li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i>${feature}</li>`).join('') : '';
-        
-        const carouselInner = document.getElementById('project-carousel-inner');
-        carouselInner.innerHTML = project.cover_image ? 
-            `<div class="carousel-item active"><img src="${project.cover_image}" class="d-block w-100" alt="${project.title}"></div>` : '';
         
         const codeSampleElement = document.getElementById('project-code-sample');
         if (project.code_samples && project.code_samples.split('|||').length > 0) {

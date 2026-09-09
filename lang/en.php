@@ -44,7 +44,9 @@ return [
             'email' => 'Email',
             'location' => 'Location',
             'phone' => 'Phone'
-        ]
+        ],
+        'social_title' => 'Prefer to reach me through social networks?',
+        'social_subtitle' => 'Message me on LinkedIn or check my work on GitHub.'
     ],
     'resume' => [
         'title' => 'Professional <span class="text-primary">Resume</span>',
@@ -91,7 +93,26 @@ return [
         'mobile_desc' => 'Development of native applications for iOS and Android with Swift and Kotlin.',
         'web_dev' => 'Junior Web Developer',
         'company_123' => 'Agency 123',
-        'web_desc' => 'User interface implementation and frontend development.'
+        'web_desc' => 'User interface implementation and frontend development.',
+        'availability' => 'Available for new projects',
+        'location_label' => 'Location',
+        'email_label' => 'Email',
+        'stats' => [
+            'years' => 'Years of Experience',
+            'skills' => 'Technologies Mastered',
+            'certifications' => 'Certifications',
+            'languages' => 'Languages'
+        ],
+        'categories' => [
+            'frontend' => 'Frontend',
+            'backend' => 'Backend',
+            'database' => 'Databases',
+            'devops' => 'DevOps & Cloud',
+            'other' => 'Other'
+        ],
+        'achievements' => 'Achievements',
+        'my_work' => 'My Work',
+        'view_projects' => 'View Projects'
     ],
     'projects' => [
         'page_title' => 'Projects | Rafael Elebiyo Median',

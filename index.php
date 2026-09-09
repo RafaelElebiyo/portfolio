@@ -1,5 +1,5 @@
 <?php
-require_once 'includes/head.php';
+require_once 'includes/translation.php';
 require_once 'services/resume_service.php';
 
 $resumeService = new ResumeService();

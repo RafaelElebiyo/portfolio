@@ -60,6 +60,11 @@ $page_title = t('meta.contact_title');
                 </div>
             </div>
         </section>
+        <section id="contact-social" class="py-5 text-center border-top border-secondary">
+            <h2 class="h3 mb-2"><?= t('contact.social_title') ?></h2>
+            <p class="lead mb-4"><?= t('contact.social_subtitle') ?></p>
+            <div class="social-links social-btn-lg justify-content-center" data-social="linkedin,github"></div>
+        </section>
         <section id="contact-info" class="py-5 border-top border-secondary">
             <div class="row text-center">
                 <div class="col-md-4 mb-4 mb-md-0">
