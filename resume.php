@@ -19,10 +19,31 @@ $keyAchievements = $resumeService->getKeyAchievements();
 $professionalGoals = $resumeService->getProfessionalGoals();
 $languages = $resumeService->getLanguages();
 $references = $resumeService->getProfessionalReferences();
+
+$resumeCategories = [
+    'frontend' => t('resume.categories.frontend'),
+    'backend' => t('resume.categories.backend'),
+    'mobile' => t('resume.categories.mobile'),
+    'design' => t('resume.categories.design'),
+    'devops' => t('resume.categories.devops'),
+    'database' => t('resume.categories.database'),
+    'other' => t('resume.categories.other')
+];
+$languageLevels = [
+    'basic' => t('resume.proficiency.basic'),
+    'intermediate' => t('resume.proficiency.intermediate'),
+    'advanced' => t('resume.proficiency.advanced'),
+    'native' => t('resume.proficiency.native')
+];
+$availabilityMap = [
+    'open' => t('resume.availability.open'),
+    'busy' => t('resume.availability.busy'),
+    'unavailable' => t('resume.availability.unavailable')
+];
 ?>
 
 <!DOCTYPE html>
-<html lang="es" data-bs-theme="dark">
+<html lang="<?= htmlspecialchars($_SESSION['lang']) ?>" data-bs-theme="dark">
 <head>
     <?php include 'includes/head.php'; ?>
     <style>
@@ -42,13 +63,13 @@ $references = $resumeService->getProfessionalReferences();
     <?php include 'includes/navigation.php'; ?>
     <main class="container py-5">
         <section class="mb-5 text-center">
-            <h1 class="display-4 fw-bold mb-3">Curriculum Vitae</h1>
+            <h1 class="display-4 fw-bold mb-3"><?= t('resume.title') ?></h1>
             <div class="d-flex justify-content-center gap-3">
                 <a href="/resume?download" class="btn btn-primary btn-lg px-4">
-                    <i class="bi bi-download me-2"></i>Descargar PDF
+                    <i class="bi bi-download me-2"></i><?= t('resume.download') ?>
                 </a>
                 <a href="#recruiter-view" class="btn btn-outline-light btn-lg px-4">
-                    Vista para Reclutadores
+                    <?= t('resume.recruiter_view') ?>
                 </a>
             </div>
         </section>
@@ -69,12 +90,12 @@ $references = $resumeService->getProfessionalReferences();
             </div>
         </section>
         <section class="mb-5">
-            <h2 class="border-bottom border-secondary pb-2 mb-4"><i class="bi bi-briefcase-fill text-primary me-2"></i>Experiencia Profesional</h2>
+            <h2 class="border-bottom border-secondary pb-2 mb-4"><i class="bi bi-briefcase-fill text-primary me-2"></i><?= t('resume.sections.experience') ?></h2>
             <div class="timeline">
                 <?php foreach ($workExperience as $work): ?>
                 <div class="timeline-item">
                     <h3 class="h4"><?= $work['position'] ?></h3>
-                    <p class="text-primary mb-2"><?= $work['company'] ?> | <?= date('Y', strtotime($work['start_date'])) ?> - <?= $work['is_current'] ? 'Presente' : date('Y', strtotime($work['end_date'])) ?></p>
+                    <p class="text-primary mb-2"><?= $work['company'] ?> | <?= date('Y', strtotime($work['start_date'])) ?> - <?= $work['is_current'] ? t('about.present') : date('Y', strtotime($work['end_date'])) ?></p>
                     <p class="text-muted"><?= $work['employment_type'] ?> | <?= $work['location'] ?></p>
                     <ul>
                         <?php $achievements = $resumeService->getWorkAchievements($work['id']); ?>
@@ -87,33 +108,23 @@ $references = $resumeService->getProfessionalReferences();
             </div>
         </section>
         <section class="mb-5">
-            <h2 class="border-bottom border-secondary pb-2 mb-4"><i class="bi bi-mortarboard-fill text-primary me-2"></i>Educación</h2>
+            <h2 class="border-bottom border-secondary pb-2 mb-4"><i class="bi bi-mortarboard-fill text-primary me-2"></i><?= t('resume.sections.education') ?></h2>
             <div class="timeline">
                 <?php foreach ($certifications as $cert): ?>
                 <div class="timeline-item">
                     <h3 class="h4"><?= $cert['name'] ?></h3>
                     <p class="text-primary mb-2"><?= $cert['issuing_organization'] ?> | <?= date('Y', strtotime($cert['issue_date'])) ?></p>
                     <?php if ($cert['credential_id']): ?>
-                    <p class="text-muted">Credencial: <?= $cert['credential_id'] ?></p>
+                    <p class="text-muted"><?= t('resume.labels.credential') ?> <?= $cert['credential_id'] ?></p>
                     <?php endif; ?>
                 </div>
                 <?php endforeach; ?>
             </div>
         </section>
         <section class="mb-5">
-            <h2 class="border-bottom border-secondary pb-2 mb-4"><i class="bi bi-code-slash text-primary me-2"></i>Habilidades Técnicas</h2>
+            <h2 class="border-bottom border-secondary pb-2 mb-4"><i class="bi bi-code-slash text-primary me-2"></i><?= t('resume.sections.skills') ?></h2>
             <div class="row">
                 <?php 
-                $categoryNames = [
-                    'frontend' => 'Frontend',
-                    'backend' => 'Backend',
-                    'mobile' => 'Mobile',
-                    'design' => 'Diseño',
-                    'devops' => 'DevOps',
-                    'database' => 'Bases de Datos',
-                    'other' => 'Otras'
-                ];
-                
                 $categories = [];
                 foreach ($skills as $skill) {
                     $categories[$skill['category']][] = $skill;
@@ -121,11 +132,11 @@ $references = $resumeService->getProfessionalReferences();
                 ?>
                 <?php foreach ($categories as $category => $categorySkills): ?>
                 <div class="col-md-6 mb-4">
-                    <h3 class="h5"><?= $categoryNames[$category] ?? $category ?></h3>
+                    <h3 class="h5"><?= $resumeCategories[$category] ?? $category ?></h3>
                     <?php foreach ($categorySkills as $skill): ?>
                     <div class="skill-item mb-3">
                         <div class="d-flex justify-content-between">
-                            <span><?= $skill['name'] ?> (<?= $skill['years_of_experience'] ?? '0' ?> años)</span>
+                            <span><?= $skill['name'] ?> (<?= $skill['years_of_experience'] ?? '0' ?> <?= t('resume.labels.years') ?>)</span>
                             <span><?= $skill['proficiency'] ?>%</span>
                         </div>
                         <div class="skill-bar">
@@ -134,7 +145,7 @@ $references = $resumeService->getProfessionalReferences();
                         <?php $tools = $resumeService->getTechnicalTools($skill['id']); ?>
                         <?php if (!empty($tools)): ?>
                         <div class="mt-2">
-                            <small class="text-muted">Herramientas:</small>
+                            <small class="text-muted"><?= t('resume.labels.tools') ?></small>
                             <div class="d-flex flex-wrap gap-2 mt-1">
                                 <?php foreach ($tools as $tool): ?>
                                 <span class="badge bg-secondary"><?= $tool['name'] ?> (<?= $tool['proficiency'] ?>%)</span>
@@ -149,10 +160,10 @@ $references = $resumeService->getProfessionalReferences();
             </div>
         </section>
         <section id="recruiter-view" class="mb-5 pdf-section">
-            <h2 class="border-bottom border-primary pb-2 mb-4"><i class="bi bi-person-badge-fill text-primary me-2"></i>Información para Reclutadores</h2>
+            <h2 class="border-bottom border-primary pb-2 mb-4"><i class="bi bi-person-badge-fill text-primary me-2"></i><?= t('resume.labels.recruiter_info') ?></h2>
             <div class="row">
                 <div class="col-md-6 mb-4">
-                    <h3 class="h5 text-primary">Logros Clave</h3>
+                    <h3 class="h5 text-primary"><?= t('resume.recruiter_section.key_achievements') ?></h3>
                     <ul>
                         <?php foreach ($keyAchievements as $achievement): ?>
                         <li class="mb-2"><?= $achievement['achievement'] ?></li>
@@ -160,7 +171,7 @@ $references = $resumeService->getProfessionalReferences();
                     </ul>
                 </div>
                 <div class="col-md-6 mb-4">
-                    <h3 class="h5 text-primary">Metas Profesionales</h3>
+                    <h3 class="h5 text-primary"><?= t('resume.recruiter_section.professional_goals') ?></h3>
                     <ul>
                         <?php foreach ($professionalGoals as $goal): ?>
                         <li class="mb-2"><?= $goal['goal'] ?></li>
@@ -169,19 +180,19 @@ $references = $resumeService->getProfessionalReferences();
                 </div>
             </div>
             <div class="mt-4">
-                <h3 class="h5 text-primary">Disponibilidad</h3>
-                <p><?= ucfirst($personalInfo['availability_status']) ?></p>
+                <h3 class="h5 text-primary"><?= t('resume.recruiter_section.availability') ?></h3>
+                <p><?= $availabilityMap[strtolower($personalInfo['availability_status'])] ?? $personalInfo['availability_status'] ?></p>
             </div>
         </section>
         <section class="mb-5">
-            <h2 class="border-bottom border-secondary pb-2 mb-4"><i class="bi bi-translate text-primary me-2"></i>Idiomas</h2>
+            <h2 class="border-bottom border-secondary pb-2 mb-4"><i class="bi bi-translate text-primary me-2"></i><?= t('resume.sections.languages') ?></h2>
             <div class="row">
                 <?php 
-                $proficiencyNames = [
-                    'basic' => 'Básico',
-                    'intermediate' => 'Intermedio',
-                    'advanced' => 'Avanzado',
-                    'native' => 'Nativo'
+                $proficiencyMap = [
+                    'basic' => '25%',
+                    'intermediate' => '50%',
+                    'advanced' => '75%',
+                    'native' => '100%'
                 ];
                 
                 foreach ($languages as $language): 
@@ -190,24 +201,16 @@ $references = $resumeService->getProfessionalReferences();
                 <div class="col-md-4 mb-3">
                     <h3 class="h6"><?= $language['name'] ?></h3>
                     <div class="skill-bar">
-                        <?php 
-                        $proficiencyMap = [
-                            'basic' => '25%',
-                            'intermediate' => '50%',
-                            'advanced' => '75%',
-                            'native' => '100%'
-                        ];
-                        ?>
                         <div class="skill-progress" data-width="<?= $proficiencyMap[$proficiency] ?>"></div>
                     </div>
-                    <small class="text-muted"><?= $proficiencyNames[$proficiency] ?? $proficiency ?><?= $language['certified_level'] ? ' (' . $language['certified_level'] . ')' : '' ?></small>
+                    <small class="text-muted"><?= $languageLevels[$proficiency] ?? $proficiency ?><?= $language['certified_level'] ? ' (' . $language['certified_level'] . ')' : '' ?></small>
                 </div>
                 <?php endforeach; ?>
             </div>
         </section>
         <?php if (!empty($references)): ?>
         <section class="mb-5">
-            <h2 class="border-bottom border-secondary pb-2 mb-4"><i class="bi bi-people-fill text-primary me-2"></i>Referencias Profesionales</h2>
+            <h2 class="border-bottom border-secondary pb-2 mb-4"><i class="bi bi-people-fill text-primary me-2"></i><?= t('resume.labels.references') ?></h2>
             <div class="row">
                 <?php foreach ($references as $reference): ?>
                 <div class="col-md-6">
@@ -216,7 +219,7 @@ $references = $resumeService->getProfessionalReferences();
                         <p class="mb-1"><?= $reference['position'] ?>, <?= $reference['company'] ?></p>
                         <p class="mb-1"><i class="bi bi-envelope-fill text-primary me-2"></i> <?= $reference['email'] ?></p>
                         <p class="mb-1"><i class="bi bi-telephone-fill text-primary me-2"></i> <?= $reference['phone'] ?></p>
-                        <p class="mb-0"><small class="text-muted">Relación: <?= $reference['relationship'] ?></small></p>
+                        <p class="mb-0"><small class="text-muted"><?= t('resume.labels.relationship') ?> <?= $reference['relationship'] ?></small></p>
                     </div>
                 </div>
                 <?php endforeach; ?>

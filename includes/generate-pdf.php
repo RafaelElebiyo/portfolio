@@ -14,39 +14,39 @@ $languages = $resumeService->getLanguages();
 $references = $resumeService->getProfessionalReferences();
 
 $sectionTitles = [
-    'experience' => 'Experiencia Profesional',
-    'education' => 'Educación',
-    'skills' => 'Habilidades Técnicas',
-    'languages' => 'Idiomas',
-    'recruiter_view' => 'Información para Reclutadores',
-    'key_achievements' => 'Logros Clave',
-    'professional_goals' => 'Metas Profesionales',
-    'availability' => 'Disponibilidad',
-    'present' => 'Presente',
-    'references' => 'Referencias Profesionales'
+    'experience' => t('resume.sections.experience'),
+    'education' => t('resume.sections.education'),
+    'skills' => t('resume.sections.skills'),
+    'languages' => t('resume.sections.languages'),
+    'recruiter_view' => t('resume.labels.recruiter_info'),
+    'key_achievements' => t('resume.recruiter_section.key_achievements'),
+    'professional_goals' => t('resume.recruiter_section.professional_goals'),
+    'availability' => t('resume.recruiter_section.availability'),
+    'present' => t('about.present'),
+    'references' => t('resume.labels.references')
 ];
 
 $skillCategories = [
-    'frontend' => 'Frontend',
-    'backend' => 'Backend',
-    'mobile' => 'Mobile',
-    'design' => 'Diseño',
-    'devops' => 'DevOps',
-    'database' => 'Bases de Datos',
-    'other' => 'Otras'
+    'frontend' => t('resume.categories.frontend'),
+    'backend' => t('resume.categories.backend'),
+    'mobile' => t('resume.categories.mobile'),
+    'design' => t('resume.categories.design'),
+    'devops' => t('resume.categories.devops'),
+    'database' => t('resume.categories.database'),
+    'other' => t('resume.categories.other')
 ];
 
 $languageLevels = [
-    'basic' => 'Básico',
-    'intermediate' => 'Intermedio',
-    'advanced' => 'Avanzado',
-    'native' => 'Nativo'
+    'basic' => t('resume.proficiency.basic'),
+    'intermediate' => t('resume.proficiency.intermediate'),
+    'advanced' => t('resume.proficiency.advanced'),
+    'native' => t('resume.proficiency.native')
 ];
 
 $availabilityStatuses = [
-    'open' => 'Disponible para oportunidades',
-    'busy' => 'Actualmente ocupado',
-    'unavailable' => 'No disponible'
+    'open' => t('resume.availability.open'),
+    'busy' => t('resume.availability.busy'),
+    'unavailable' => t('resume.availability.unavailable')
 ];
 
 $employmentTypes = [
@@ -117,7 +117,7 @@ foreach ($certifications as $cert) {
     $html .= '
     <div class="timeline-item">
         <h3>' . $cert['name'] . '</h3>
-        <div class="timeline-date">' . $cert['issuing_organization'] . ' | ' . date('Y', strtotime($cert['issue_date'])) . ($cert['credential_id'] ? ' | Credencial: ' . $cert['credential_id'] : '') . '</div>
+        <div class="timeline-date">' . $cert['issuing_organization'] . ' | ' . date('Y', strtotime($cert['issue_date'])) . ($cert['credential_id'] ? ' | ' . t('resume.labels.credential') . ' ' . $cert['credential_id'] : '') . '</div>
     </div>';
 }
 
@@ -138,7 +138,7 @@ foreach ($categories as $category => $categorySkills) {
     foreach ($categorySkills as $skill) {
         $html .= '
         <div>
-            <div>' . $skill['name'] . ' (' . ($skill['years_of_experience'] ?? '0') . ' años) - ' . $skill['proficiency'] . '%</div>
+            <div>' . $skill['name'] . ' (' . ($skill['years_of_experience'] ?? '0') . ' ' . t('resume.labels.years') . ') - ' . $skill['proficiency'] . '%</div>
             <div class="skill-bar">
                 <div class="skill-progress" style="width: ' . $skill['proficiency'] . '%;"></div>
             </div>';
@@ -229,9 +229,9 @@ if (!empty($references)) {
             <div class="reference-card">
                 <h3>' . $reference['name'] . '</h3>
                 <p>' . $reference['position'] . ', ' . $reference['company'] . '</p>
-                <p>Email: ' . $reference['email'] . '</p>
-                <p>Teléfono: ' . $reference['phone'] . '</p>
-                <p><small>Relación: ' . $reference['relationship'] . '</small></p>
+                <p><strong>Email:</strong> ' . $reference['email'] . '</p>
+                <p><strong>Teléfono:</strong> ' . $reference['phone'] . '</p>
+                <p><small>' . t('resume.labels.relationship') . ' ' . $reference['relationship'] . '</small></p>
             </div>
         </div>';
     }

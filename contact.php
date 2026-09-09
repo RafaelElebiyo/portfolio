@@ -8,7 +8,7 @@ $current_page = 'contact.php';
 $page_title = t('meta.contact_title');
 ?>
 <!DOCTYPE html>
-<html lang="es" data-bs-theme="dark">
+<html lang="<?= htmlspecialchars($_SESSION['lang']) ?>" data-bs-theme="dark">
 <head>
     <?php include 'includes/head.php'; ?>
 </head>

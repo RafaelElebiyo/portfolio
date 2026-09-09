@@ -34,6 +34,11 @@ function t($key) {
     return $value;
 }
 
+function t_or($key, $fallback) {
+    $value = t($key);
+    return $value === $key ? $fallback : $value;
+}
+
 function lang_url($lang) {
     $url = $_SERVER['REQUEST_URI'];
     $url = preg_replace('/([?&])lang=[^&]*(&|$)/', '$1', $url);

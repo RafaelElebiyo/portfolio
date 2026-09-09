@@ -6,7 +6,7 @@ $resumeService = new ResumeService();
 $personalInfo = $resumeService->getPersonalInfo();
 ?>
 <!DOCTYPE html>
-<html lang="es" data-bs-theme="dark">
+<html lang="<?= htmlspecialchars($_SESSION['lang']) ?>" data-bs-theme="dark">
 <head>  
     <?php require_once 'includes/head.php'; ?>
 </head>

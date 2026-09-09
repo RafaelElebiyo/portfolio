@@ -42,8 +42,14 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     function showProjectDetails(project) {
-        document.getElementById('project-modal-title').textContent = project.title || 'Proyecto sin título';
-        document.getElementById('project-modal-description').innerHTML = `<p>${project.full_description || 'Descripción no disponible'}</p>`;
+        const modalElement = document.getElementById('projectModal');
+        const fallbackTitle = modalElement.dataset.fallbackTitle || 'Proyecto sin título';
+        const fallbackDesc = modalElement.dataset.fallbackDesc || 'Descripción no disponible';
+        const fallbackNoCode = modalElement.dataset.fallbackNoCode || '// No hay código disponible';
+        const fallbackNoSamples = modalElement.dataset.fallbackNoSamples || '// No hay muestras de código disponibles';
+
+        document.getElementById('project-modal-title').textContent = project.title || fallbackTitle;
+        document.getElementById('project-modal-description').innerHTML = `<p>${project.full_description || fallbackDesc}</p>`;
 
         const videoFrame = document.getElementById('project-video-frame');
         const videoWrapper = document.getElementById('project-video-wrapper');
@@ -78,10 +84,10 @@ document.addEventListener('DOMContentLoaded', function() {
         const codeSampleElement = document.getElementById('project-code-sample');
         if (project.code_samples && project.code_samples.split('|||').length > 0) {
             const firstSample = project.code_samples.split('|||')[0].split(':::');
-            codeSampleElement.textContent = firstSample[1] || '// No hay código disponible';
+            codeSampleElement.textContent = firstSample[1] || fallbackNoCode;
             codeSampleElement.className = `language-${(firstSample[0] || 'javascript').toLowerCase()}`;
         } else {
-            codeSampleElement.textContent = '// No hay muestras de código disponibles';
+            codeSampleElement.textContent = fallbackNoSamples;
         }
         
         document.getElementById('project-live-demo').href = project.project_url || '#';

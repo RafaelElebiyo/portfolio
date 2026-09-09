@@ -1,14 +1,18 @@
-<div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+<div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true"
+     data-fallback-title="<?= t('projects.modal.fallback_title') ?>"
+     data-fallback-desc="<?= t('projects.modal.fallback_desc') ?>"
+     data-fallback-no-code="<?= t('projects.modal.fallback_no_code') ?>"
+     data-fallback-no-samples="<?= t('projects.modal.fallback_no_samples') ?>">
     <div class="modal-dialog modal-xl modal-dialog-centered">
         <div class="modal-content bg-dark text-light border-secondary">
             <div class="modal-header border-secondary">
                 <h2 class="modal-title fs-5" id="projectModalLabel"><?= t('projects.modal.title') ?></h2>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="<?= t('projects.modal.close') ?>"></button>
             </div>
             <div class="modal-body">
                 <div class="project-media mb-4">
                     <div class="ratio ratio-16x9 bg-black rounded project-video-wrapper d-none" id="project-video-wrapper">
-                        <iframe id="project-video-frame" src="" title="Video de proyecto" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                        <iframe id="project-video-frame" src="" title="<?= t('projects.modal.video_title') ?>" allow="autoplay; fullscreen" allowfullscreen></iframe>
                     </div>
                     <img id="project-media-fallback" src="" alt="" class="d-none w-100 rounded project-media-img">
                 </div>

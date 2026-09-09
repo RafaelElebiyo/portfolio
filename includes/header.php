@@ -16,7 +16,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
             <span class="text-light fs-6"><?= htmlspecialchars($personalInfo['job_title']) ?></span>
         </a>
         
-        <button class="navbar-toggler d-lg-none border-0 px-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler d-lg-none border-0 px-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="<?= t('menu.toggle') ?>">
             <span class="navbar-toggler-icon"></span>
         </button>
     </div>

@@ -11,7 +11,8 @@ return [
         'about' => 'À Propos',
         'projects' => 'Projets',
         'resume' => 'CV',
-        'contact' => 'Contact'
+        'contact' => 'Contact',
+        'toggle' => 'Basculer la navigation'
     ],
     'hero' => [
         'title' => 'Rafael Elebiyo Median',
@@ -62,6 +63,34 @@ return [
             'key_achievements' => 'Réalisations Clés',
             'professional_goals' => 'Objectifs Professionnels',
             'availability' => 'Disponibilité'
+        ],
+        'labels' => [
+            'credential' => 'Crédential :',
+            'years' => 'ans',
+            'tools' => 'Outils :',
+            'recruiter_info' => 'Infos pour les recruteurs',
+            'references' => 'Références professionnelles',
+            'relationship' => 'Relation :'
+        ],
+        'categories' => [
+            'frontend' => 'Frontend',
+            'backend' => 'Backend',
+            'mobile' => 'Mobile',
+            'design' => 'Design',
+            'devops' => 'DevOps',
+            'database' => 'Bases de données',
+            'other' => 'Autres'
+        ],
+        'proficiency' => [
+            'basic' => 'Débutant',
+            'intermediate' => 'Intermédiaire',
+            'advanced' => 'Avancé',
+            'native' => 'Natif'
+        ],
+        'availability' => [
+            'open' => 'Disponible pour des opportunités',
+            'busy' => 'Actuellement occupé',
+            'unavailable' => 'Non disponible'
         ]
     ], 
     'about' => [
@@ -85,14 +114,11 @@ return [
         'my' => 'Mon',
         'experience' => 'Expérience',
         'fullstack_dev' => 'Développeur FullStack',
-        'company_xyz' => 'Entreprise XYZ',
         'present' => 'Présent',
         'fullstack_desc' => 'Développement et maintenance d\'applications web et mobiles utilisant des technologies modernes.',
         'mobile_dev' => 'Développeur Mobile',
-        'company_abc' => 'Startup ABC',
         'mobile_desc' => 'Développement d\'applications natives pour iOS et Android avec Swift et Kotlin.',
         'web_dev' => 'Développeur Web Junior',
-        'company_123' => 'Agence 123',
         'web_desc' => 'Implémentation d\'interfaces utilisateur et développement frontend.',
         'availability' => 'Disponible pour de nouveaux projets',
         'location_label' => 'Localisation',
@@ -125,7 +151,8 @@ return [
             'mobile' => 'mobile',
             'cross-platform' => 'multiplateforme',
             'cms' => 'cms',
-            'cloud' => 'cloud'
+            'cloud' => 'cloud',
+            'other' => 'autre'
         ],
         'filters' => [
             'all' => 'Tout',
@@ -157,6 +184,11 @@ return [
             'code_loading' => 'Le code sera chargé via AJAX',
             'live_demo' => 'Voir la Démo',
             'source_code' => 'Code Source',
+            'video_title' => 'Vidéo du projet',
+            'fallback_title' => 'Projet sans titre',
+            'fallback_desc' => 'Description non disponible',
+            'fallback_no_code' => '// Aucun code disponible',
+            'fallback_no_samples' => '// Aucun exemple de code disponible',
             'close' => 'Fermer'
         ]
     ]

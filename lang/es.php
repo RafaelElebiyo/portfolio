@@ -11,7 +11,8 @@ return [
         'about' => 'Sobre Mí',
         'projects' => 'Proyectos',
         'resume' => 'CV',
-        'contact' => 'Contacto'
+        'contact' => 'Contacto',
+        'toggle' => 'Alternar navegación'
     ],
     'hero' => [
         'title' => 'Rafael Elebiyo Median',
@@ -62,6 +63,34 @@ return [
             'key_achievements' => 'Logros Clave',
             'professional_goals' => 'Metas Profesionales',
             'availability' => 'Disponibilidad'
+        ],
+        'labels' => [
+            'credential' => 'Credencial:',
+            'years' => 'años',
+            'tools' => 'Herramientas:',
+            'recruiter_info' => 'Información para Reclutadores',
+            'references' => 'Referencias Profesionales',
+            'relationship' => 'Relación:'
+        ],
+        'categories' => [
+            'frontend' => 'Frontend',
+            'backend' => 'Backend',
+            'mobile' => 'Mobile',
+            'design' => 'Diseño',
+            'devops' => 'DevOps',
+            'database' => 'Bases de Datos',
+            'other' => 'Otras'
+        ],
+        'proficiency' => [
+            'basic' => 'Básico',
+            'intermediate' => 'Intermedio',
+            'advanced' => 'Avanzado',
+            'native' => 'Nativo'
+        ],
+        'availability' => [
+            'open' => 'Disponible para oportunidades',
+            'busy' => 'Actualmente ocupado',
+            'unavailable' => 'No disponible'
         ]
     ],
     'about' => [
@@ -88,10 +117,8 @@ return [
         'present' => 'Presente',
         'fullstack_desc' => 'Desarrollo y mantenimiento de aplicaciones web y móviles usando tecnologías modernas.',
         'mobile_dev' => 'Desarrollador Mobile',
-        'company_abc' => 'Startup ABC',
         'mobile_desc' => 'Desarrollo de aplicaciones nativas para iOS y Android con Swift y Kotlin.',
         'web_dev' => 'Desarrollador Web Junior',
-        'company_123' => 'Agencia 123',
         'web_desc' => 'Implementación de interfaces de usuario y desarrollo frontend.',
         'availability' => 'Disponible para nuevos proyectos',
         'location_label' => 'Ubicación',
@@ -124,7 +151,8 @@ return [
             'mobile' => 'móvil',
             'cross-platform' => 'multiplataforma',
             'cms' => 'cms',
-            'cloud' => 'cloud'
+            'cloud' => 'cloud',
+            'other' => 'otro'
         ],
         'filters' => [
             'all' => 'Todo',
@@ -156,6 +184,11 @@ return [
             'code_loading' => 'Código se cargará via AJAX',
             'live_demo' => 'Ver Demo',
             'source_code' => 'Código Fuente',
+            'video_title' => 'Video del proyecto',
+            'fallback_title' => 'Proyecto sin título',
+            'fallback_desc' => 'Descripción no disponible',
+            'fallback_no_code' => '// No hay código disponible',
+            'fallback_no_samples' => '// No hay muestras de código disponibles',
             'close' => 'Cerrar'
         ]
     ]

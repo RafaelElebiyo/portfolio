@@ -11,7 +11,8 @@ return [
         'about' => 'About Me',
         'projects' => 'Projects',
         'resume' => 'Resume',
-        'contact' => 'Contact'
+        'contact' => 'Contact',
+        'toggle' => 'Toggle navigation'
     ],
     'hero' => [
         'title' => 'Rafael Elebiyo Median',
@@ -62,6 +63,34 @@ return [
             'key_achievements' => 'Key Achievements',
             'professional_goals' => 'Professional Goals',
             'availability' => 'Availability'
+        ],
+        'labels' => [
+            'credential' => 'Credential:',
+            'years' => 'years',
+            'tools' => 'Tools:',
+            'recruiter_info' => 'Recruiter Info',
+            'references' => 'Professional References',
+            'relationship' => 'Relationship:'
+        ],
+        'categories' => [
+            'frontend' => 'Frontend',
+            'backend' => 'Backend',
+            'mobile' => 'Mobile',
+            'design' => 'Design',
+            'devops' => 'DevOps',
+            'database' => 'Databases',
+            'other' => 'Other'
+        ],
+        'proficiency' => [
+            'basic' => 'Basic',
+            'intermediate' => 'Intermediate',
+            'advanced' => 'Advanced',
+            'native' => 'Native'
+        ],
+        'availability' => [
+            'open' => 'Open to opportunities',
+            'busy' => 'Currently busy',
+            'unavailable' => 'Not available'
         ]
     ],
     'about' => [
@@ -85,14 +114,11 @@ return [
         'my' => 'My',
         'experience' => 'Experience',
         'fullstack_dev' => 'FullStack Developer',
-        'company_xyz' => 'Company XYZ',
         'present' => 'Present',
         'fullstack_desc' => 'Development and maintenance of web and mobile applications using modern technologies.',
         'mobile_dev' => 'Mobile Developer',
-        'company_abc' => 'Startup ABC',
         'mobile_desc' => 'Development of native applications for iOS and Android with Swift and Kotlin.',
         'web_dev' => 'Junior Web Developer',
-        'company_123' => 'Agency 123',
         'web_desc' => 'User interface implementation and frontend development.',
         'availability' => 'Available for new projects',
         'location_label' => 'Location',
@@ -125,7 +151,8 @@ return [
             'mobile' => 'mobile',
             'cross-platform' => 'cross-platform',
             'cms' => 'cms',
-            'cloud' => 'cloud'
+            'cloud' => 'cloud',
+            'other' => 'other'
         ],
         'filters' => [
             'all' => 'All',
@@ -157,6 +184,11 @@ return [
             'code_loading' => 'Code will load via AJAX',
             'live_demo' => 'Live Demo',
             'source_code' => 'Source Code',
+            'video_title' => 'Project video',
+            'fallback_title' => 'Untitled project',
+            'fallback_desc' => 'Description not available',
+            'fallback_no_code' => '// No code available',
+            'fallback_no_samples' => '// No code samples available',
             'close' => 'Close'
         ]
     ]

@@ -18,15 +18,15 @@
                     </div>
                     <div class="card-body">
                         <div class="d-flex flex-wrap gap-2 mb-3">
-                            <span class="badge bg-primary"><?= ucfirst($project['category']) ?></span>
+                            <span class="badge bg-primary"><?= htmlspecialchars(ucfirst(t_or('projects.categories.' . $project['category'], $project['category']))) ?></span>
                         </div>
-                        <h3 class="h5 card-title"><?= $project['title'] ?></h3>
-                        <p class="card-text"><?= $project['short_description'] ?></p>
+                        <h3 class="h5 card-title"><?= htmlspecialchars($project['title']) ?></h3>
+                        <p class="card-text"><?= htmlspecialchars($project['short_description']) ?></p>
                     </div>
                     <div class="card-footer bg-dark border-top-0">
                         <button class="btn btn-sm btn-outline-light project-details-btn" 
                                 data-project='<?= htmlspecialchars(json_encode($project), ENT_QUOTES, 'UTF-8') ?>'>
-                            Ver Detalles
+                            <?= t('projects.view_details') ?>
                         </button>
                     </div>
                 </div>

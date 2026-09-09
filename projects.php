@@ -8,7 +8,7 @@ $page_title = t('projects.page_title');
 $projects = $portfolioService->getAllProjects();
 ?>
 <!DOCTYPE html>
-<html lang="es" data-bs-theme="dark">
+<html lang="<?= htmlspecialchars($_SESSION['lang']) ?>" data-bs-theme="dark">
 <head>
     <?php include 'includes/head.php'; ?>
 </head>
