@@ -44,7 +44,7 @@ $references = $resumeService->getProfessionalReferences();
         <section class="mb-5 text-center">
             <h1 class="display-4 fw-bold mb-3">Curriculum Vitae</h1>
             <div class="d-flex justify-content-center gap-3">
-                <a href="resume.php?download" class="btn btn-primary btn-lg px-4">
+                <a href="/resume?download" class="btn btn-primary btn-lg px-4">
                     <i class="bi bi-download me-2"></i>Descargar PDF
                 </a>
                 <a href="#recruiter-view" class="btn btn-outline-light btn-lg px-4">

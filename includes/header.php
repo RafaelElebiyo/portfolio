@@ -11,7 +11,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
 ?>
 <header class="fixed-top bg-dark bg-opacity-90 backdrop-blur border-bottom border-secondary">
     <div class="container d-flex justify-content-between align-items-center py-3">
-        <a href="index.php" class="text-decoration-none">
+        <a href="/" class="text-decoration-none">
             <h1 class="m-0 fs-4 text-primary fw-bold"><?= htmlspecialchars($personalInfo['full_name']) ?></h1>
             <span class="text-light fs-6"><?= htmlspecialchars($personalInfo['job_title']) ?></span>
         </a>

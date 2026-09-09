@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Validaciones
     if (empty($name) || empty($email) || empty($message) || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        header('Location: ../contact.php?status=error');
+        header('Location: /contact?status=error');
         exit;
     }
 
@@ -73,15 +73,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                          "-- \nEste mensaje fue enviado desde el formulario de contacto de $fromName";
 
         $mail->send();
-        header('Location: ../contact.php?status=success');
+        header('Location: /contact?status=success');
     } catch (Exception $e) {
 
         error_log("Error al enviar correo: " . $mail->ErrorInfo);
-        header('Location: ../contact.php?status=error');
+        header('Location: /contact?status=error');
     }
     exit;
 } else {
-    header('Location: ../contact.php?status=error');
+    header('Location: /contact?status=error');
     exit;
 }
 ?>

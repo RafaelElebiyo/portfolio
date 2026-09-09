@@ -24,8 +24,8 @@ $personalInfo = $resumeService->getPersonalInfo();
                         <h2 class="fs-1 mb-4 text-primary"><?= htmlspecialchars($personalInfo['job_title']) ?></h2>
                         <p class="lead mb-4"><?= htmlspecialchars($personalInfo['short_bio']) ?></p>
                         <div class="d-flex gap-3">
-                            <a href="projects.php" class="btn btn-primary btn-lg px-4"><?= t('hero.projects_button') ?></a>
-                            <a href="contact.php" class="btn btn-outline-light btn-lg px-4"><?= t('hero.contact_button') ?></a>
+                            <a href="/projects" class="btn btn-primary btn-lg px-4"><?= t('hero.projects_button') ?></a>
+                            <a href="/contact" class="btn btn-outline-light btn-lg px-4"><?= t('hero.contact_button') ?></a>
                         </div>
                     </div>
                     <div class="col-lg-6 d-none d-lg-block">

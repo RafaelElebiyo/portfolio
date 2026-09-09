@@ -11,10 +11,10 @@ require_once 'translation.php';
             <div class="col-lg-4 mb-4 mb-lg-0">
                 <h4 class="h6 text-primary mb-3"><?= t('footer.quick_links') ?></h4>
                 <ul class="list-unstyled">
-                    <li class="mb-2"><a href="index.php" class="text-light text-decoration-none"><?= t('menu.home') ?></a></li>
-                    <li class="mb-2"><a href="projects.php" class="text-light text-decoration-none"><?= t('menu.projects') ?></a></li>
-                    <li class="mb-2"><a href="resume.php" class="text-light text-decoration-none"><?= t('menu.resume') ?></a></li>
-                    <li class="mb-2"><a href="contact.php" class="text-light text-decoration-none"><?= t('menu.contact') ?></a></li>
+                    <li class="mb-2"><a href="/" class="text-light text-decoration-none"><?= t('menu.home') ?></a></li>
+                    <li class="mb-2"><a href="/projects" class="text-light text-decoration-none"><?= t('menu.projects') ?></a></li>
+                    <li class="mb-2"><a href="/resume" class="text-light text-decoration-none"><?= t('menu.resume') ?></a></li>
+                    <li class="mb-2"><a href="/contact" class="text-light text-decoration-none"><?= t('menu.contact') ?></a></li>
                 </ul>
             </div>
             <div class="col-lg-4">
